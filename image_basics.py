@@ -79,21 +79,23 @@ def to_sitk_image(np_image, reference_img):
     img.CopyInformation(reference_img)
     return img
 
-'''
+
 def preprocess_rescale_numpy(np_img, new_min_val, new_max_val):
     """
     PREPROCESS_RESCALE_NUMPY:
     # todo: rescale the intensities of the np_img to the range [new_min_val, new_max_val].
     # Use numpy arithmetics only.
     """
+    # Calculate max intensity
     max_val = np_img.max()
+    # Minimum intensity
     min_val = np_img.min()
 
     rescaled_np_img = (np_img - min_val) / (max_val - min_val) * (new_max_val - new_min_val) + new_min_val  # todo: modify here
 
     return rescaled_np_img
 
-
+'''
 def preprocess_rescale_sitk(img, new_min_val, new_max_val):
     """
     PREPROCESS_RESCALE_SITK:
