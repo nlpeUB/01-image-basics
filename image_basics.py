@@ -54,7 +54,7 @@ def load_image(img_path, is_label_img):
 
     return img
 
-
+'''
 def to_numpy_array(img):
     """
     TO_NUMPY_ARRAY:
@@ -152,3 +152,4 @@ def postprocess_largest_component(label_img):
 
     largest_component = relabeled_components == 1  # zero is background
     return largest_component
+'''
