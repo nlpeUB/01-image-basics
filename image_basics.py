@@ -144,7 +144,7 @@ def extract_feature_median(img):
 
     return median_img
 
-'''
+
 def postprocess_largest_component(label_img):
     """
     POSTPROCESS_LARGEST_COMPONENT:
@@ -156,5 +156,5 @@ def postprocess_largest_component(label_img):
     relabeled_components = sitk.RelabelComponent(connected_components, sortByObjectSize=True)  # todo: modify here
 
     largest_component = relabeled_components == 1  # zero is background
-    return largest_component
-'''
+    
+    return largest_component # binary
