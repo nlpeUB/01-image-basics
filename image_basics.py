@@ -65,7 +65,7 @@ def to_numpy_array(img):
 
     return np_img
 
-'''
+
 def to_sitk_image(np_image, reference_img):
     """
     TO_SITK_IMAGE:
@@ -79,7 +79,7 @@ def to_sitk_image(np_image, reference_img):
     img.CopyInformation(reference_img)
     return img
 
-
+'''
 def preprocess_rescale_numpy(np_img, new_min_val, new_max_val):
     """
     PREPROCESS_RESCALE_NUMPY:
