@@ -95,7 +95,7 @@ def preprocess_rescale_numpy(np_img, new_min_val, new_max_val):
 
     return rescaled_np_img
 
-'''
+
 def preprocess_rescale_sitk(img, new_min_val, new_max_val):
     """
     PREPROCESS_RESCALE_SITK:
@@ -106,7 +106,7 @@ def preprocess_rescale_sitk(img, new_min_val, new_max_val):
 
     return rescaled_img
 
-
+'''
 def register_images(img, label_img, atlas_img):
     """
     REGISTER_IMAGES:
