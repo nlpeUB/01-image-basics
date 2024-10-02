@@ -134,7 +134,7 @@ def register_images(img, label_img, atlas_img):
 
     return registered_img, registered_label
 
-'''
+
 def extract_feature_median(img):
     """
     EXTRACT_FEATURE_MEDIAN:
@@ -144,7 +144,7 @@ def extract_feature_median(img):
 
     return median_img
 
-
+'''
 def postprocess_largest_component(label_img):
     """
     POSTPROCESS_LARGEST_COMPONENT:
