@@ -117,18 +117,22 @@ def preprocess_rescale_sitk(img, new_min_val, new_max_val):
     Returns:
         Image with rescaled intensity values.
     """
-    # Ensure image is in correct format
+    # Ensure image is in correct format (Float32)
     img = sitk.Cast(img, sitk.sitkFloat32)
 
-    # Rescale intensity
-    rescaled_img = sitk.RescaleIntensity(img, newMinimum=new_min_val, newMaximum=new_max_val)
-
-    # Debug: Check min and max values of rescaled image
+    # Get the minimum and maximum values of the image
     min_max_filter = sitk.MinimumMaximumImageFilter()
-    min_max_filter.Execute(rescaled_img)
-    print(f"Rescaled Image Min: {min_max_filter.GetMinimum()}, Max: {min_max_filter.GetMaximum()}")
+    min_max_filter.Execute(img)
+    img_min = min_max_filter.GetMinimum()
+    img_max = min_max_filter.GetMaximum()
 
-    return rescaled_img
+    # Normalize the image to [0, 1]
+    img_normalized = (img - img_min) / (img_max - img_min)
+
+    # Rescale to the new range [new_min_val, new_max_val]
+    img_rescaled = img_normalized * (new_max_val - new_min_val) + new_min_val
+
+    return img_rescaled
 
 
 def register_images(img, label_img, atlas_img):
