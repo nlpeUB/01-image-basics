@@ -123,6 +123,11 @@ def preprocess_rescale_sitk(img, new_min_val, new_max_val):
     # Rescale intensity
     rescaled_img = sitk.RescaleIntensity(img, newMinimum=new_min_val, newMaximum=new_max_val)
 
+    # Debug: Check min and max values of rescaled image
+    min_max_filter = sitk.MinimumMaximumImageFilter()
+    min_max_filter.Execute(rescaled_img)
+    print(f"Rescaled Image Min: {min_max_filter.GetMinimum()}, Max: {min_max_filter.GetMaximum()}")
+
     return rescaled_img
 
 
