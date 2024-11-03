@@ -117,6 +117,10 @@ def preprocess_rescale_sitk(img, new_min_val, new_max_val):
     Returns:
         Image with rescaled intensity values.
     """
+    # Ensure image is in correct format
+    img = sitk.Cast(img, sitk.sitkFloat32)
+
+    # Rescale intensity
     rescaled_img = sitk.RescaleIntensity(img, newMinimum=new_min_val, newMaximum=new_max_val)
 
     return rescaled_img
