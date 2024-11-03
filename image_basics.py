@@ -82,7 +82,7 @@ def to_sitk_image(np_image, reference_img):
         A SimpleITK image with the same spatial information as the reference image.
     """
 
-    img = sitk.GetArrayFromImage(np_image)
+    img = sitk.GetImageFromArray(np_image)
     img.CopyInformation(reference_img)
 
     return img
